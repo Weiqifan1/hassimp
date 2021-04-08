@@ -1,7 +1,7 @@
 module Main where
 
+import Lib
 import Data.Char
   
 main :: IO ()
-main = do
-  putStrLn "hello world"
+main = someFunc

@@ -22,6 +22,39 @@
   (major1) == 4 && (major2) == 14 && (minor) <= 1)
 #endif /* MIN_VERSION_base */
 
+/* package hassimp-0.1.0.0 */
+#ifndef VERSION_hassimp
+#define VERSION_hassimp "0.1.0.0"
+#endif /* VERSION_hassimp */
+#ifndef MIN_VERSION_hassimp
+#define MIN_VERSION_hassimp(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  1 || \
+  (major1) == 0 && (major2) == 1 && (minor) <= 0)
+#endif /* MIN_VERSION_hassimp */
+
+/* package tasty-hspec-1.1.6 */
+#ifndef VERSION_tasty_hspec
+#define VERSION_tasty_hspec "1.1.6"
+#endif /* VERSION_tasty_hspec */
+#ifndef MIN_VERSION_tasty_hspec
+#define MIN_VERSION_tasty_hspec(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  1 || \
+  (major1) == 1 && (major2) == 1 && (minor) <= 6)
+#endif /* MIN_VERSION_tasty_hspec */
+
+/* package tasty-quickcheck-0.10.1.2 */
+#ifndef VERSION_tasty_quickcheck
+#define VERSION_tasty_quickcheck "0.10.1.2"
+#endif /* VERSION_tasty_quickcheck */
+#ifndef MIN_VERSION_tasty_quickcheck
+#define MIN_VERSION_tasty_quickcheck(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  10 || \
+  (major1) == 0 && (major2) == 10 && (minor) <= 1)
+#endif /* MIN_VERSION_tasty_quickcheck */
+
 /* tool gcc-10.2.0 */
 #ifndef TOOL_VERSION_gcc
 #define TOOL_VERSION_gcc "10.2.0"
@@ -122,7 +155,7 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "hassimp-0.1.0.0-W3l9zWC7qrH90CrqQuBv1-hassimp"
+#define CURRENT_COMPONENT_ID "hassimp-0.1.0.0-BkqLb70pbBbBuPFVviOW2a-hassimp"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
