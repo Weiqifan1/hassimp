@@ -24,10 +24,4 @@ main = hspec $ do
   describe "someFunc shoud return text" $ do
     it "retrun string" $ do
       myFunc `shouldBe` "myFunc" 
-       
-  -- difference :: Eq a => [a] -> [a] -> [a]      
-  describe "function difference" $ do
-    it "difference [1,2] [1] == [2]" $ do
-      difference [1,2] [1] `shouldBe` [2]
-    it "difference [1,2,2,2,3] [2] == [1,3]" $ do
-      difference [1,2,2,2,3] [2] `shouldBe` [1,3]   
+  
