@@ -25,10 +25,3 @@ main = hspec $ do
     it "retrun string" $ do
       myFunc `shouldBe` "myFunc"
       
-  describe "Decode the Morse code 6 kyu" $ do
-    it ".... . -.--   .--- ..- -.. . should return HEY JUDE" $ do
-      decodeMorse ".... . -.--   .--- ..- -.. ." `shouldBe` "HEY JUDE"    
-    
-    it ".... . -.--   .--- ..- -.. . should return HEY JUDE" $ do
-          decodeMorse ".... . -.--   .--- ..- -.. ." `shouldBe` "HEY JUDE"     
-  
