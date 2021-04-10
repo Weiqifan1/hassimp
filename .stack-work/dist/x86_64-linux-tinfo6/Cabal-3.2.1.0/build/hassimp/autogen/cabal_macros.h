@@ -11,6 +11,17 @@
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 #endif /* MIN_VERSION_hassimp */
 
+/* package aeson-1.5.6.0 */
+#ifndef VERSION_aeson
+#define VERSION_aeson "1.5.6.0"
+#endif /* VERSION_aeson */
+#ifndef MIN_VERSION_aeson
+#define MIN_VERSION_aeson(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  5 || \
+  (major1) == 1 && (major2) == 5 && (minor) <= 6)
+#endif /* MIN_VERSION_aeson */
+
 /* package base-4.14.1.0 */
 #ifndef VERSION_base
 #define VERSION_base "4.14.1.0"
@@ -21,6 +32,17 @@
   (major1) == 4 && (major2) <  14 || \
   (major1) == 4 && (major2) == 14 && (minor) <= 1)
 #endif /* MIN_VERSION_base */
+
+/* package hashmap-1.3.3 */
+#ifndef VERSION_hashmap
+#define VERSION_hashmap "1.3.3"
+#endif /* VERSION_hashmap */
+#ifndef MIN_VERSION_hashmap
+#define MIN_VERSION_hashmap(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  3 || \
+  (major1) == 1 && (major2) == 3 && (minor) <= 3)
+#endif /* MIN_VERSION_hashmap */
 
 /* package hassimp-0.1.0.0 */
 #ifndef VERSION_hassimp
@@ -177,7 +199,7 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "hassimp-0.1.0.0-8zR8NULlJR0BJ84uBxYku6-hassimp"
+#define CURRENT_COMPONENT_ID "hassimp-0.1.0.0-3iEDNBtwSFNJx4STgAk9XU-hassimp"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"

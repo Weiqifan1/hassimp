@@ -1,11 +1,14 @@
 module Lib
     ( someFunc, myFunc, readzhengma,
     process, result, ycontainsx, myNub, removexfromy, simpelflatten,
-    getRelevantLines, getLetToHan, listOfSameKeys, listOfSameValues, getLetterKeys, getUniqueLettersHan, getUniqueHanLetters, getUniqueLettersHanFromFile, getUniqueHanLettersFromFile
+    getRelevantLines, getLetToHan, listOfSameKeys, listOfSameValues, getLetterKeys, getUniqueLettersHan,
+    getUniqueHanLetters, getUniqueLettersHanFromFile, getUniqueHanLettersFromFile
+    , getListHanToLet, getListLetToHan
     ) where
 
 import Data.List.Split
-import Data.List
+import Data.List as DL
+import Data.HashMap as DH
 import Control.Monad
 -- regex tdfa
 -- https://williamyaoh.com/posts/2019-04-11-cheatsheet-to-regexes-in-haskell.html
@@ -41,6 +44,19 @@ process a = head $ endBy "\n" a
 -- getLetToHan content
 -- simpelflatten $ map (\x -> (endBy ",<" x)) $ getRelevantLines content
 
+getListLetToHan :: IO (Map String [String])
+getListLetToHan = do
+  content <- readzhengma
+  let result = DH.fromList $ DL.map (\x -> (head x, x)) $ getUniqueLettersHan $ getLetToHan content
+  return result
+
+getListHanToLet :: IO (Map String [String])
+getListHanToLet = do
+  content <- readzhengma
+  let result = DH.fromList $ DL.map (\x -> (head x, x)) $ getUniqueHanLetters $ getLetToHan content
+  return result
+
+-- ************************************
 
 getUniqueHanLettersFromFile :: IO [[String]]
 getUniqueHanLettersFromFile = do
@@ -56,45 +72,45 @@ getUniqueLettersHanFromFile = do
   return result
 
 getUniqueHanLetters :: [[String]] -> [[String]]
-getUniqueHanLetters letToHanNested = myNub $ map (\x -> (listOfSameValues x letToHanNested)) (getHanValues letToHanNested)
+getUniqueHanLetters letToHanNested = myNub $ DL.map (\x -> (listOfSameValues x letToHanNested)) (getHanValues letToHanNested)
 
 -- myNub $ map (\x -> (listOfSameValues x letTohan)) (getLetterKeys letTohan)
 getUniqueLettersHan :: [[String]] -> [[String]]
-getUniqueLettersHan letToHanNested = myNub $ map (\x -> (listOfSameKeys x letToHanNested)) (getLetterKeys letToHanNested)
+getUniqueLettersHan letToHanNested = myNub $ DL.map (\x -> (listOfSameKeys x letToHanNested)) (getLetterKeys letToHanNested)
 
 getHanValues :: [[String]] -> [String]
-getHanValues letToHanNested = map (\x -> (last x)) letToHanNested
+getHanValues letToHanNested = DL.map (\x -> (last x)) letToHanNested
 
 -- create list of unique letterKeys from zhengma nested string (letter, character)
 getLetterKeys :: [[String]] -> [String]
-getLetterKeys letToHanNested = map (\x -> (head x)) letToHanNested
+getLetterKeys letToHanNested = DL.map (\x -> (head x)) letToHanNested
 
 --listOfSameValues :: String -> [[String]] -> [String]
 --  ("\19968" :) $ map (\x -> (head x)) $ filter (\x -> ("\19968" == last x)) $ getLetToHan content
 listOfSameValues :: String -> [[String]] -> [String]
-listOfSameValues hanValue letToHanNested = (hanValue :) $ map (\x -> (head x)) $ filter (\x -> (hanValue == last x)) $ letToHanNested
+listOfSameValues hanValue letToHanNested = (hanValue :) $ DL.map (\x -> (head x)) $ DL.filter (\x -> (hanValue == last x)) $ letToHanNested
 
 -- create list of items that has x in first position
 -- example: (listOfSameValues "aatt") $ getLetToHan content
 listOfSameKeys :: String -> [[String]] -> [String]
-listOfSameKeys letterKey letToHanNested = (letterKey :) $ simpelflatten $ map (\x -> (tail x)) $ filter (\x -> (letterKey == head x)) $ letToHanNested
+listOfSameKeys letterKey letToHanNested = (letterKey :) $ simpelflatten $ DL.map (\x -> (tail x)) $ DL.filter (\x -> (letterKey == head x)) $ letToHanNested
 
 -- get nested String (letter, characters) from a zhengmaFileContent String
 getLetToHan :: String -> [[String]]
-getLetToHan zhengmaFile = map (\x -> endBy "=" x) $
-                          map (\x -> removexfromy "\"" x) $
-                          map (\x -> removexfromy ">" x) $
+getLetToHan zhengmaFile = DL.map (\x -> endBy "=" x) $
+                          DL.map (\x -> removexfromy "\"" x) $
+                          DL.map (\x -> removexfromy ">" x) $
                           simpelflatten $
-                          map (\x -> (endBy ",<" x)) $
+                          DL.map (\x -> (endBy ",<" x)) $
                           getRelevantLines zhengmaFile
 
 -- get lines from a raw zhengma file that actually contains letter to character mappings
 getRelevantLines :: String -> [String]
-getRelevantLines zhengmafilecontent = filter (\x -> (ycontainsx "\"=\"" x)) $ endBy "\n" zhengmafilecontent
+getRelevantLines zhengmafilecontent = DL.filter (\x -> (ycontainsx "\"=\"" x)) $ endBy "\n" zhengmafilecontent
 
 -- helperfunction remove dublicates from list
 myNub :: (Eq a) => [a] -> [a]
-myNub (x:xs) = x : myNub (filter (/= x) xs)
+myNub (x:xs) = x : myNub (DL.filter (/= x) xs)
 myNub [] = []
 
 -- helperfunction remove substring x from y

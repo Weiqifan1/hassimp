@@ -30,7 +30,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/home/pc20201005/Documents/HaskellProjects/hassimp/.stack-work/install/x86_64-linux-tinfo6/8dc51adaa75d0c688da52df5104ee52bc0f090621052ad9510f956fce6e3e70a/8.10.4/bin"
-libdir     = "/home/pc20201005/Documents/HaskellProjects/hassimp/.stack-work/install/x86_64-linux-tinfo6/8dc51adaa75d0c688da52df5104ee52bc0f090621052ad9510f956fce6e3e70a/8.10.4/lib/x86_64-linux-ghc-8.10.4/hassimp-0.1.0.0-8zR8NULlJR0BJ84uBxYku6-hassimp"
+libdir     = "/home/pc20201005/Documents/HaskellProjects/hassimp/.stack-work/install/x86_64-linux-tinfo6/8dc51adaa75d0c688da52df5104ee52bc0f090621052ad9510f956fce6e3e70a/8.10.4/lib/x86_64-linux-ghc-8.10.4/hassimp-0.1.0.0-3iEDNBtwSFNJx4STgAk9XU-hassimp"
 dynlibdir  = "/home/pc20201005/Documents/HaskellProjects/hassimp/.stack-work/install/x86_64-linux-tinfo6/8dc51adaa75d0c688da52df5104ee52bc0f090621052ad9510f956fce6e3e70a/8.10.4/lib/x86_64-linux-ghc-8.10.4"
 datadir    = "/home/pc20201005/Documents/HaskellProjects/hassimp/.stack-work/install/x86_64-linux-tinfo6/8dc51adaa75d0c688da52df5104ee52bc0f090621052ad9510f956fce6e3e70a/8.10.4/share/x86_64-linux-ghc-8.10.4/hassimp-0.1.0.0"
 libexecdir = "/home/pc20201005/Documents/HaskellProjects/hassimp/.stack-work/install/x86_64-linux-tinfo6/8dc51adaa75d0c688da52df5104ee52bc0f090621052ad9510f956fce6e3e70a/8.10.4/libexec/x86_64-linux-ghc-8.10.4/hassimp-0.1.0.0"

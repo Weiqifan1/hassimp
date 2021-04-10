@@ -3,7 +3,8 @@ module Main where
 import Lib
 import Data.Char
 import Data.List.Split
-import Data.List
+import Data.List as DL
+import Data.HashMap as DH
 import Control.Monad
 import System.IO
 -- regex tdfa
