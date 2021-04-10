@@ -33,6 +33,28 @@
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 #endif /* MIN_VERSION_hassimp */
 
+/* package regex-tdfa-1.3.1.0 */
+#ifndef VERSION_regex_tdfa
+#define VERSION_regex_tdfa "1.3.1.0"
+#endif /* VERSION_regex_tdfa */
+#ifndef MIN_VERSION_regex_tdfa
+#define MIN_VERSION_regex_tdfa(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  3 || \
+  (major1) == 1 && (major2) == 3 && (minor) <= 1)
+#endif /* MIN_VERSION_regex_tdfa */
+
+/* package split-0.2.3.4 */
+#ifndef VERSION_split
+#define VERSION_split "0.2.3.4"
+#endif /* VERSION_split */
+#ifndef MIN_VERSION_split
+#define MIN_VERSION_split(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  2 || \
+  (major1) == 0 && (major2) == 2 && (minor) <= 3)
+#endif /* MIN_VERSION_split */
+
 /* package tasty-hspec-1.1.6 */
 #ifndef VERSION_tasty_hspec
 #define VERSION_tasty_hspec "1.1.6"
@@ -155,7 +177,7 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "hassimp-0.1.0.0-BkqLb70pbBbBuPFVviOW2a-hassimp"
+#define CURRENT_COMPONENT_ID "hassimp-0.1.0.0-8zR8NULlJR0BJ84uBxYku6-hassimp"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
