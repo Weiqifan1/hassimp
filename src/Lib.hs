@@ -1,5 +1,5 @@
 module Lib
-    ( someFunc, myFunc, readzz
+    ( someFunc, myFunc, readzhengma, process, result
     ) where
 
 import Data.List.Split
@@ -11,6 +11,7 @@ import Control.Monad
 import Text.Regex.TDFA
 import Text.Regex.TDFA.Text ()
 import System.IO
+import System.IO.Unsafe
 
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
@@ -18,14 +19,20 @@ someFunc = putStrLn "someFunc"
 myFunc :: String
 myFunc = "myFunc"
 
-readzz :: IO String
-readzz = do
-        let list = []
+
+result = do
+  content <- readzhengma
+  let semiresult = process content
+  return semiresult
+
+readzhengma :: IO String
+readzhengma = do
         handle <- openFile "src/resources/zz201906_test.txt" ReadMode
         contents <- hGetContents handle
         return contents
 
-
+process :: String -> String
+process a = head $ endBy "\n" a
 
 
 
